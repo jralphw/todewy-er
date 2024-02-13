@@ -1,5 +1,5 @@
 import { createSignal, type Component, lazy } from "solid-js";
-import { Router, Route, A } from "@solidjs/router";
+import { Route, A } from "@solidjs/router";
 import Todo from "./pages/Todo";
 import Profile from "./pages/Profile";
 const Feed = lazy(() => import("./pages/Feed"));
@@ -41,14 +41,11 @@ function AppPage(props) {
   );
 }
 
-const App: Component = () => {
+function App(){
   return (
-    <Router root={AppPage}>
-      <Route path="/todo" component={Todo}></Route>
-      <Route path="/feed" component={Feed}></Route>
-      <Route path="/prof" component={Profile}></Route>
-      <Route path="/" component={Todo}></Route>
-    </Router>
+    <>
+    <NavBar />
+    </>
   );
 };
 
