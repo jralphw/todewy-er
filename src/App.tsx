@@ -9,17 +9,16 @@ let [page, setPage] = createSignal<navBarRoute>("todo");
 
 function NavButton({ route }: { route: navBarRoute }) {
   return (
-    <A
+    <div
       class={
         route === page()
           ? "rounded-full bg-sky-900 h-8 w-8"
           : "rounded-full bg-inherit h-8 w-8"
       }
-      href={"/" + route}
       onClick={() => {
         setPage(route);
       }}
-    ></A>
+    ></div>
   );
 }
 function NavBar() {
@@ -32,21 +31,23 @@ function NavBar() {
   );
 }
 
-function AppPage(props) {
+function App() {
+  let shown = () => {
+    switch (page()) {
+      case "todo":
+        return <Todo />;
+      case "feed":
+        return <Feed />;
+      case "prof":
+        return <Profile />;
+    }
+  };
   return (
     <>
-      {props.children}
+      {shown}
       <NavBar />
     </>
   );
 }
-
-function App(){
-  return (
-    <>
-    <NavBar />
-    </>
-  );
-};
 
 export default App;
