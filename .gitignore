@@ -1,2 +1,4 @@
 node_modules
 dist
+
+MOCK_DATA.json

@@ -2,8 +2,8 @@ import { createSignal, type Component, lazy } from "solid-js";
 import Todo from "./pages/Todo";
 import Profile from "./pages/Profile";
 const Feed = lazy(() => import("./pages/Feed"));
+import { navBarRoute } from "./components/types";
 
-type navBarRoute = "todo" | "feed" | "prof";
 let [page, setPage] = createSignal<navBarRoute>("todo");
 
 function NavBar() {
