@@ -7,7 +7,6 @@ import { navBarRoute } from "./components/types";
 let [page, setPage] = createSignal<navBarRoute>("todo");
 
 function NavBar() {
-
   function NavButton({ path }: { path: navBarRoute }) {
     return (
       <div
@@ -24,7 +23,7 @@ function NavBar() {
   }
 
   return (
-    <div class="fixed bottom-3 bg-sky-100/55 rounded-full w-fit h-fit p-2 flex gap-1 self-center">
+    <div class="fixed bottom-2 bg-sky-100/55 rounded-full w-fit h-fit p-2 flex gap-1 left-1/2 transform -translate-x-1/2">
       <NavButton path="todo" />
       <NavButton path="feed" />
       <NavButton path="prof" />
@@ -41,13 +40,15 @@ function App() {
         return <Feed />;
       case "prof":
         return <Profile />;
+      default:
+        return <Todo />;
     }
   };
   return (
-    <>
-      {shown}
+    <div class="h-screen">
+      {shown()}
       <NavBar />
-    </>
+    </div>
   );
 }
 
