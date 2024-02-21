@@ -1,17 +1,14 @@
-import { todo } from "../components/types";
+import Todew from "../components/Todew";
+import { md } from "../components/MOCK_DATA";
+import { For } from "solid-js";
 
-function todew({ item }: { item: todo }) {
-  return (
-    <a href={"./"}>
-      <div class="rounded-lg m-auto">
-        {item.category ? (
-          <p class="text-sm text-left">{item.category}</p>
-        ) : null}
-        <p class="text-base text-center">{item.content}</p>
-      </div>
-    </a>
-  );
-}
 export default function Todo() {
-  return <p>Todo</p>;
+  return (
+    <>
+      <p>Todo</p>
+      <div class="grid grid-cols-2 gap-2 p-4 lg:grid-cols-3">
+        <For each={md}>{(todew) => <Todew item={todew} />}</For>
+      </div>
+    </>
+  );
 }
