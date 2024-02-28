@@ -1,4 +1,4 @@
-import { createSignal, type Component, lazy } from "solid-js";
+import { createSignal, lazy } from "solid-js";
 import Todo from "./pages/Todo";
 import Profile from "./pages/Profile";
 const Feed = lazy(() => import("./pages/Feed"));

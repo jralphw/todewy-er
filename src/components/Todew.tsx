@@ -3,7 +3,7 @@ import { todo } from "./types";
 export default function Todew({ item }: { item: todo }) {
   return (
     <a href={"../detail"}>
-      <div class="rounded-lg m-auto bg-sky-200 size-full">
+      <div class="rounded-lg m-auto bg-sky-200 size-full p-3">
         {item.category ? (
           <p class="text-sm text-left">{item.category}</p>
         ) : null}
