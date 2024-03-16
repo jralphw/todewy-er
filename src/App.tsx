@@ -32,21 +32,20 @@ function NavBar() {
 }
 
 function App() {
-  let shown = () => {
-    switch (page()) {
-      case "todo":
-        return <Todo />;
-      case "feed":
-        return <Feed />;
-      case "prof":
-        return <Profile />;
-      default:
-        return <Todo />;
-    }
-  };
   return (
     <div class="h-screen">
-      {shown()}
+      {(() => {
+        switch (page()) {
+          case "todo":
+            return <Todo />;
+          case "feed":
+            return <Feed />;
+          case "prof":
+            return <Profile />;
+          default:
+            return <Todo />;
+        }
+      })()}
       <NavBar />
     </div>
   );
